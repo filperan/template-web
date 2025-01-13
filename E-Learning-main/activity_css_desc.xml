@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CSS.Css_desc">
+
+    <ImageView
+        android:id="@+id/imageView13"
+        android:layout_width="422dp"
+        android:layout_height="846dp"
+        app:srcCompat="@drawable/css_isi"
+        tools:layout_editor_absoluteX="-6dp"
+        tools:layout_editor_absoluteY="0dp"
+        tools:ignore="MissingConstraints" />
+
+    <View
+        android:id="@+id/view13"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="12dp"
+        android:background="#E0E0E0"
+        app:layout_constraintEnd_toStartOf="@+id/textView31"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView31"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="32dp"
+        android:text="E-Learn"
+        android:textColor="@color/black"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView47"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:text="It education"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView31" />
+
+    <ImageView
+        android:id="@+id/imageView14"
+        android:layout_width="73dp"
+        android:layout_height="73dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="@+id/view13"
+        app:layout_constraintStart_toStartOf="@+id/view13"
+        app:layout_constraintTop_toTopOf="@+id/view13"
+        app:srcCompat="@drawable/css" />
+
+    <TextView
+        android:id="@+id/textView48"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="CSS"
+        android:textColor="@color/black"
+        android:textSize="25sp"
+        app:layout_constraintEnd_toEndOf="@+id/view13"
+        app:layout_constraintStart_toStartOf="@+id/view13"
+        app:layout_constraintTop_toBottomOf="@+id/imageView14" />
+
+    <View
+        android:id="@+id/view23"
+        android:layout_width="368dp"
+        android:layout_height="594dp"
+        android:layout_marginTop="24dp"
+        app:layout_constraintEnd_toEndOf="@+id/imageView13"
+        app:layout_constraintHorizontal_bias="0.428"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view13" />
+
+    <TextView
+        android:id="@+id/textView49"
+        android:layout_width="368dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:text="CSS adalah bahasa yang memungkinkan Anda untuk mengontrol bagaimana elemen-elemen HTML ditampilkan di layar,di kertas, atau dalam media lain. CSS memisahkan konten dari presentasi, memberikan flesibilitas dan kontrol yang lebih besar dalam menentukan gaya dan tata letak halaman web."
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="@+id/view23"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/view23"
+        app:layout_constraintTop_toBottomOf="@+id/view13" />
+
+    <TextView
+        android:id="@+id/textView76"
+        android:layout_width="368dp"
+        android:layout_height="wrap_content"
+        android:text="CSS adalah bahasa yang sangat penting dalam pengembangan web, memungkinkan desainer dan pengembang untuk mengontrol tampilan dan tata letak halaman web dengan cara yang fleksibel dan efisien. Dengan memisahkan konten dari presentasii,CSS membantu menjaga kebersihan kode dan membuatnya lebih mudah untuk memelihara dan memperbarui desain situs web."
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="@+id/view23"
+        app:layout_constraintTop_toBottomOf="@+id/textView49" />
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="#DFDFDF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/navigation_materi"
+        app:itemIconTint="@color/black"
+        app:itemTextColor="@color/black" />
+
+    <ImageButton
+        android:id="@+id/imageButton3"
+        android:layout_width="73dp"
+        android:layout_height="33dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:background="@null"
+        android:src="@drawable/arrowleft"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
