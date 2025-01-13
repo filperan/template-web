@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MentalityApps - Konseling Online</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --slate: #4A5568;
+            --blue: #C5D3E8;
+            --green: #68D391;
+            --cream: #F7FAFC;
+            --dark-slate: #2D3748;
+            --light-slate: #A0AEC0;
+        }
+
+        body {
+            background: var(--cream);
+            color: var(--dark-slate);
+            line-height: 1.6;
+        }
+
+        .header {
+            background: var(--slate);
+            padding: 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .back-btn {
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        .page-title {
+            color: #fff;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .main-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .session-card {
+            background: #fff;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+            transition: transform 0.3s;
+        }
+
+        .session-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .session-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .session-status {
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            background: var(--green);
+            color: #fff;
+            font-weight: bold;
+        }
+
+        .options-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .option-card {
+            background: #fff;
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .option-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .option-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .option-price {
+            background: var(--green);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-weight: 500;
+            color: #fff;
+        }
+
+        .features-list {
+            margin: 1rem 0;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.75rem;
+            color: var(--dark-slate);
+        }
+
+        .feature-check {
+            color: var(--green);
+            font-weight: bold;
+        }
+
+        .btn {
+            width: 100%;
+            padding: 1rem;
+            border-radius: 8px;
+            border: none;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .btn-primary {
+            background: var(--slate);
+            color: #fff;
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--slate);
+            color: var(--slate);
+        }
+
+        .counselors-section {
+            margin: 2rem 0;
+        }
+
+        .counselor-filters {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            overflow-x: auto;
+            padding: 0.5rem;
+        }
+
+        .filter-btn {
+            padding: 0.75rem 1.5rem;
+            border-radius: 20px;
+            border: none;
+            background: #fff;
+            cursor: pointer;
+            white-space: nowrap;
+            transition: background 0.3s;
+        }
+
+        .filter-btn.active {
+            background: var(--slate);
+            color: #fff;
+        }
+
+        .counselors-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .counselor-card {
+            background: #fff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .counselor-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .counselor-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            background: var(--blue);
+        }
+
+        .counselor-info {
+            padding: 1.5rem;
+        }
+
+        .counselor-name {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .counselor-spec {
+            color: var(--light-slate);
+            font-size: 0.875rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .rating-row {
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+            margin: 0.5rem 0;
+        }
+
+        .star {
+            color: #FFB400;
+        }
+
+        .quick-actions {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .action-btn {
+            width: 56px;
+            height: 56px;
+            border-radius: 28px;
+            background: var(--slate);
+            color: #fff;
+            border: none;
+            font-size: 1.5rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.3s;
+        }
+
+        .emergency-btn {
+            background: #ef4444;
+        }
+
+        .session-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .detail-item {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+        }
+
+        .detail-label {
+            font-size: 0.875rem;
+            color: var(--light-slate);
+        }
+
+        .detail-value {
+            font-weight: 500;
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 1rem 0;
+        }
+
+        .tag {
+            background: var(--blue);
+            padding: 0.25rem 0.75rem;
+            border-radius: 15px;
+            font-size: 0.75rem;
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header">
+        <div class="header-content">
+            <button class="back-btn"><a href="index.html">←</a></button>
+            <h1 class="page-title">Konseling Online</h1>
+        </div>
+    </header>
+    <main class="main-content">
+        <section class="session-card">
+            <div class="session-header">
+                <h3>Sesi Mendatang</h3>
+                <span class="session-status">2 Jam Lagi</span>
+            </div>
+            <div class="session-details">
+                <div class="detail-item">
+                    <span class="detail-label">Psikolog</span>
+                    <span class="detail-value">Dr. Sarah Williams</span>
+                </div>
+                <div class="detail-item">
+                    <span class="detail-label">Tanggal & Waktu</span>
+                    <span class="detail-value">9 Nov 2024, 14:00</span>
+                </div>
+                <div class="detail-item">
+                    <span class="detail-label">Durasi</span>
+                    <span class="detail-value">60 Menit</span>
+                </div>
+            </div>
+            <button id="masuk-sesi"
+                class="btn btn-primary bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 transition duration-200">
+                masuk sesi
+            </button>
+
+            <script>
+                document.getElementById('masuk-sesi').addEventListener('click', function () {
+                    // Arahkan ke halaman berhasil_beli.html
+                    window.location.href = 'masuksesi.html';
+                });
+            </script>
+        </section>
+        <div class="options-grid">
+            <div class="option-card">
+                <div class="option-header">
+                    <h3>Sesi Tunggal</h3>
+                    <span class="option-price">Rp 300.000</span>
+                </div>
+                <p>Konsultasi one-on-one dengan psikolog pilihan Anda</p>
+                <div class="features-list">
+                    <div class="feature-item"><span class="feature-check">✓</span> Durasi 60 menit</div>
+                    <div class="feature-item"><span class="feature-check">✓</span> Chat sebelum sesi</div>
+                    <div class="feature-item"><span class="feature-check">✓</span> Rangkuman sesi</div>
+                </div>
+                <button id="buy-package"
+                    class="btn btn-primary bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 transition duration-200">
+                    Beli Paket
+                </button>
+
+                <script>
+                    document.getElementById('buy-package').addEventListener('click', function () {
+                        // Arahkan ke halaman berhasil_beli.html
+                        window.location.href = 'berhasil_beli.html';
+                    });
+                </script>
+            </div>
+            <div class="option-card bg-white p-6 rounded-lg shadow-md">
+                <div class="option-header flex justify-between items-center mb-4">
+                    <h3 class="text-lg font-bold">Lihat Psikolog</h3>
+                    <span class="option-price text-blue-500">Rp 1.000.000</span>
+                </div>
+                <p class="text-gray-700 mb-4">4 sesi konsultasi dalam sebulan</p>
+                <div class="features-list mb-4">
+                    <div class="feature-item flex items-center"><span class="feature-check text-green-500">✓</span> 4x
+                        sesi 60 menit
+                    </div>
+                    <div class="feature-item flex items-center"><span class="feature-check text-green-500">✓</span> Chat
+                        24/7</div>
+                    <div class="feature-item flex items-center"><span class="feature-check text-green-500">✓</span>
+                        Workbook digital
+                    </div>
+                </div>
+
+                <button id="view-package"
+                    class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 transition duration-200">
+                    Lihat Paket
+                </button>
+            </div>
+
+            <script>
+                document.getElementById('view-package').addEventListener('click', function () {
+                    // Arahkan ke halaman konsul2.html
+                    window.location.href = 'konsul2.html';
+                });
+            </script>
+        </div>
+        <section class="counselors-section">
+            <h2 class="text-2xl font-bold mb-6">Psikolog Kami</h2>
+            <div class="counselors-grid">
+                <div class="counselor-card">
+                    <div class="counselor-img">
+                        <img alt="Portrait of Dr. Sarah Williams" class="rounded-full mb-4" height="200" width="200"
+                            src="https://storage.googleapis.com/a1aa/image/soieeuDS0mohV0bfY7VWcoyYaTYnv2QVUTrJG3bVGC4DGfqPB.jpg" />
+                    </div>
+                    <div class="counselor-info">
+                        <h3 class="counselor-name">Dr. Sarah Williams</h3>
+                        <p class="counselor-spec">Psikolog Klinis • 8 tahun pengalaman</p>
+                        <div class="rating-row">
+                            <span class="star">⭐⭐⭐⭐⭐</span> <span>(4.9)</span>
+                        </div>
+                        <div class="tags">
+                            <span class="tag">Anxiety</span>
+                            <span class="tag">Depression</span>
+                            <span class="tag">Stress</span>
+                        </div>
+                        <div class="counselor-stats">
+                            <div class="stat-item">
+                                <div class="stat-value">500+</div>
+                                <div class="stat-label">Sesi</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-value">98%</div>
+                                <div class="stat-label">Rating</div>
+                            </div>
+                        </div>
+                        <div class="schedule-section">
+                            <h4 class="schedule-title">Jadwal Tersedia:</h4>
+                            <div class="time-slot">13:00</div>
+                            <div class="time-slot">15:30</div>
+                            <div class="time-slot">18:00</div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="counselor-card">
+                    <div class="counselor-img">
+                        <img alt="Portrait of Putri Puspitaningrum, M.Psi." height="200" width="200"
+                            src="https://storage.googleapis.com/a1aa/image/gdDTzsoZ5f12FClndsCe5LjJCJKJwr6YldMQH7blPUtCjv6TA.jpg"
+                            width="100" />
+                    </div>
+                    <div class="counselor-info">
+                        <h3 class="counselor-name">Dr. James Chen</h3>
+                        <p class="counselor-spec">Psikolog Relationship • 5 tahun pengalaman</p>
+                        <div class="rating-row">
+                            <span class="star">⭐⭐⭐⭐⭐</span> <span>(4.8)</span>
+                        </div>
+                        <div class="tags">
+                            <span class="tag">Relationship</span>
+                            <span class="tag">Family</span>
+                            <span class="tag">Marriage</span>
+                        </div>
+                        <div class="counselor-stats">
+                            <div class="stat-item">
+                                <div class="stat-value">300+</div>
+                                <div class="stat-label">Sesi</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-value">96%</div>
+                                <div class="stat-label">Rating</div>
+                            </div>
+                        </div>
+                        <div class="schedule-section">
+                            <h4 class="schedule-title">Jadwal Tersedia:</h4>
+                            <div class="time-slot">14:00</div>
+                            <div class="time-slot">16:30</div>
+                            <div class="time-slot">19:00</div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="counselor-card">
+                    <div class="counselor-img">
+                        <img alt="Portrait of Dr. James Chen" class="rounded-full mb-4" height="200" width="200"
+                            src="https://storage.googleapis.com/a1aa/image/soieeuDS0mohV0bfY7VWcoyYaTYnv2QVUTrJG3bVGC4DGfqPB.jpg" />
+                    </div>
+                    <div class="counselor-info">
+                        <h3 class="counselor-name">Dr. Lisa Tan</h3>
+                        <p class="counselor-spec">Psikolog Anak • 7 tahun pengalaman</p>
+                        <div class="rating-row">
+                            <span class="star">⭐⭐⭐⭐⭐</span> <span>(4.7)</span>
+                        </div>
+                        <div class="tags">
+                            <span class="tag">Child Psychology</span>
+                            <span class="tag">Anxiety</span>
+                            <span class="tag">Stress</span>
+                        </div>
+                        <div class="counselor-stats">
+                            <div class="stat-item">
+                                <div class="stat-value">400+</div>
+                                <div class="stat-label">Sesi</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-value">95%</div>
+                                <div class="stat-label">Rating</div>
+                            </div>
+                        </div>
+                        <div class="schedule-section">
+                            <h4 class="schedule-title">Jadwal Tersedia:</h4>
+                            <div class="time-slot">10:00</div>
+                            <div class="time-slot">12:30</div>
+                            <div class="time-slot">15:00</div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <div class="quick-actions">
+        <button class="action-btn emergency-btn">🆘</button>
+        <button class="action-btn">💬</button>
+    </div>
+</body>
+
+</html>

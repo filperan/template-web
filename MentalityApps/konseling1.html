@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pilih Konseling</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        .card {
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn {
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .btn:hover {
+            transform: scale(1.05);
+        }
+
+        .btn-primary {
+            background: linear-gradient(to right, #66bb6a, #81c784);
+        }
+
+        .btn-primary:hover {
+            background: linear-gradient(to right, #81c784, #66bb6a);
+        }
+
+        .btn-secondary {
+            background: linear-gradient(to right, #ffecb3, #ffab91);
+        }
+
+        .btn-secondary:hover {
+            background: linear-gradient(to right, #ffab91, #ffecb3);
+        }
+    </style>
+</head>
+
+<body class="bg-gray-100">
+
+    <!-- Navbar -->
+    <nav class="bg-blue-300 p-4">
+        <div class="container mx-auto">
+            <h1 class="text-white text-2xl font-bold">Konseling Kesehatan Mental</h1>
+            <ul class="flex space-x-4 mt-2">
+                <li><a href="index.html" class="text-white hover:underline">Beranda</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container mx-auto p-6">
+        <h1 class="text-3xl font-bold text-center mb-6">Pilih Konseling</h1>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+
+            <!-- Card 1 -->
+            <div class="card bg-white rounded-lg shadow-lg p-4">
+                <h2 class="text-xl font-semibold">Konseling Individu</h2>
+                <p class="mt-2 text-gray-600">Sesi konseling pribadi untuk membantu Anda mengatasi masalah pribadi.</p>
+                <p class="mt-4 font-bold">Harga: Rp 500.000</p>
+                <p class="mt-1">Jumlah Pertemuan: 5</p>
+                <button class="bg-green-500 text-white px-4 py-2 rounded-lg shadow-md btn-primary"
+                    onclick="toggleDetails('details1')">Detail</button>
+                <button class="bg-gray-200 text-gray-700 px-4 py-2 rounded-lg shadow-md btn-secondary"
+                    onclick="location.href='berhasil_beli.html'">Beli</button>
+                <div id="details1" class="hidden mt-4 bg-gray-100 p-4 rounded">
+                    <h3 class="font-semibold">Kelas: Konseling Individu</h3>
+                    <p>Psikolog: Dr. Andi Susanto</p>
+                    <p class="mt-2">Deskripsi: Sesi ini dirancang untuk membantu individu dalam mengatasi masalah
+                        pribadi, seperti kecemasan, depresi, dan masalah hubungan.</p>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="card bg-white rounded-lg shadow-lg p-4">
+                <h2 class="text-xl font-semibold">Konseling Keluarga</h2>
+                <p class="mt-2 text-gray-600">Sesi konseling untuk membantu keluarga dalam menyelesaikan konflik.</p>
+                <p class="mt-4 font-bold">Harga: Rp 750.000</p>
+                <p class="mt-1">Jumlah Pertemuan: 4</p>
+                <button class="bg-green-500 text-white px-4 py-2 rounded-lg shadow-md btn-primary"
+                    onclick="toggleDetails('details2')">Detail</button>
+                <button class="bg-gray-200 text-gray-700 px-4 py-2 rounded-lg shadow-md btn-secondary"
+                    onclick="location.href='berhasil_beli.html'">Beli</button>
+                <div id="details2" class="hidden mt-4 bg-gray-100 p-4 rounded">
+                    <h3 class="font-semibold">Kelas: Konseling Keluarga</h3>
+                    <p>Psikolog: Dr. Budi Raharjo</p>
+                    <p class="mt-2">Deskripsi: Sesi ini bertujuan untuk membantu keluarga dalam menyelesaikan konflik
+                        dan meningkatkan komunikasi antar anggota keluarga.</p>
+                </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="card bg-white rounded-lg shadow-lg p-4">
+                <h2 class="text-xl font-semibold">Konseling Remaja</h2>
+                <p class="mt-2 text-gray-600">Sesi konseling yang dirancang khusus untuk remaja.</p>
+                <p class="mt-4 font-bold">Harga: Rp 600.000</p>
+                <p class="mt-1">Jumlah Pertemuan: 6</p>
+                <button class="bg-green-500 text-white px-4 py-2 rounded-lg shadow-md btn-primary"
+                    onclick="toggleDetails('details3')">Detail</button>
+                <button class="bg-gray-200 text-gray-700 px-4 py-2 rounded-lg shadow-md btn-secondary"
+                    onclick="location.href='berhasil_beli.html'">Beli</button>
+                <div id="details3" class="hidden mt-4 bg-gray-100 p-4 rounded">
+                    <h3 class="font-semibold">Kelas: Konseling Remaja</h3>
+                    <p>Psikolog: Dr. Citra Lestari</p>
+                    <p class="mt-2">Deskripsi: Sesi ini ditujukan untuk membantu remaja dalam mengatasi masalah yang
+                        mereka hadapi, termasuk tekanan teman sebaya dan masalah identitas.</p>
+                </div>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="card bg-white rounded-lg shadow-lg p-4">
+                <h2 class="text-xl font-semibold">Konseling Pasangan</h2>
+                <p class="mt-2 text-gray-600">Sesi konseling untuk pasangan yang ingin memperbaiki hubungan.</p>
+                <p class="mt-4 font-bold">Harga: Rp 800.000</p>
+                <p class="mt-1">Jumlah Pertemuan: 3</p>
+                <button class="bg-green-500 text-white px-4 py-2 rounded-lg shadow-md btn-primary"
+                    onclick="toggleDetails('details4')">Detail</button>
+                <button class="bg-gray-200 text-gray-700 px-4 py-2 rounded-lg shadow-md btn-secondary"
+                    onclick="location.href='berhasil_beli.html'">Beli</button>
+                <div id="details4" class="hidden mt-4 bg-gray-100 p-4 rounded">
+                    <h3 class="font-semibold">Kelas: Konseling Pasangan</h3>
+                    <p>Psikolog: Dr. Dwi Santoso</p>
+                    <p class="mt-2">Deskripsi: Sesi ini membantu pasangan dalam memperbaiki komunikasi dan menyelesaikan
+                        konflik yang ada dalam hubungan mereka.</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        function toggleDetails(detailId) {
+            const detailElement = document.getElementById(detailId);
+            detailElement.classList.toggle('hidden');
+        }
+    </script>
+
+</body>
+
+</html>

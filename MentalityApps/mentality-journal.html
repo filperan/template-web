@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>MentalityApps - Jurnal & Mood Tracker</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        :root {
+            --slate: #A6AEBF;
+            --blue: #C5D3E8;
+            --green: #D0E8C5;
+            --cream: #FFF8DE;
+            --dark-slate: #2d3748;
+            --light-slate: #4A5568;
+        }
+
+        body {
+            background: var(--cream);
+            color: var(--dark-slate);
+            max-width: 1200px;
+            margin: 0 auto;
+            min-height: 100vh;
+            padding: 1rem;
+        }
+
+        .header {
+            background: var(--slate);
+            padding: 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .back-btn {
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        .page-title {
+            color: #fff;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .mood-section,
+        .journal-section,
+        .sidebar {
+            background: #fff;
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-bottom: 1.5rem;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .mood-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 1rem;
+        }
+
+        .mood-card {
+            text-align: center;
+            padding: 1rem;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.2s, transform 0.2s;
+            background: #f9f9f9;
+            border: 1px solid var(--light-slate);
+        }
+
+        .mood-card:hover,
+        .mood-card.selected {
+            background: var(--green);
+            transform: scale(1.05);
+        }
+
+        .mood-emoji {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .mood-label {
+            font-size: 0.875rem;
+        }
+
+        .factors-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            gap: 0.75rem;
+            margin-top: 1rem;
+        }
+
+        .factor-chip {
+            background: var(--blue);
+            padding: 0.5rem;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            text-align: center;
+            cursor: pointer;
+            transition: background 0.2s, transform 0.2s;
+        }
+
+        .factor-chip:hover,
+        .factor-chip.selected {
+            background: var(--slate);
+            color: #fff;
+            transform: scale(1.05);
+        }
+
+        .journal-input {
+            width: 100%;
+            min-height: 200px;
+            padding: 1rem;
+            border: 1px solid var(--light-slate);
+            border-radius: 8px;
+            margin: 1rem 0;
+            font-size: 1rem;
+            line-height: 1.6;
+            resize: vertical;
+        }
+
+        .prompt-card {
+            background: var(--blue);
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .prompt-card:hover {
+            transform: translateY(-3px);
+        }
+
+        .prompt-text {
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+
+        .prompt-meta {
+            font-size: 0.875rem;
+            opacity: 0.7;
+        }
+
+        .calendar {
+            margin-bottom: 1.5rem;
+        }
+
+        .calendar-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .calendar-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 0.5rem;
+        }
+
+        .calendar-day {
+            aspect-ratio: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.875rem;
+            position: relative;
+            background: #f0f0f0;
+            border-radius: 8px;
+            transition: background 0.2s, transform 0.2s;
+        }
+
+        .calendar-day:hover {
+            background: var(--blue);
+            color: #fff;
+            transform: scale(1.05);
+        }
+
+        .mood-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            position: absolute;
+            bottom: 2px;
+        }
+
+        .streak-section {
+            text-align: center;
+            padding: 1rem;
+            background: var(--green);
+            border-radius: 8px;
+        }
+
+        .streak-number {
+            font-size: 2rem;
+            font-weight: 600;
+            margin: 0.5rem 0;
+        }
+
+        .streak-label {
+            font-size: 0.875rem;
+            opacity: 0.8;
+        }
+
+        .mood-insights {
+            margin-top: 1.5rem;
+        }
+
+        .chart-container {
+            height: 200px;
+            margin: 1rem 0;
+            background: var(--blue);
+            border-radius: 8px;
+        }
+
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 500;
+            border: none;
+            cursor: pointer;
+            transition: background 0.2s, transform 0.2s;
+        }
+
+        .btn-primary {
+            background: var(--slate);
+            color: #fff;
+        }
+
+        .btn-secondary {
+            background: var(--blue);
+            color: #2d3748;
+        }
+
+        .btn:hover {
+            transform: scale(1.05);
+        }
+
+        .action-row {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .tag-cloud {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 1rem 0;
+        }
+
+        .mood-tag {
+            padding: 0.25rem 0.75rem;
+            border-radius: 15px;
+            font-size: 0.75rem;
+            background: var(--blue);
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header">
+        <div class="header-content">
+            <button class="back-btn">←</button>
+            <h1 class="page-title">Jurnal & Mood Tracker</h1>
+        </div>
+    </header>
+    <main class="main-content">
+        <div class="content-area">
+            <section class="mood-section">
+                <div class="section-header">
+                    <h2>Bagaimana Perasaan Anda Hari Ini?</h2>
+                    <span>14 Desember 2024</span>
+                </div>
+                <div class="mood-grid">
+                    <div class="mood-card">
+                        <div class="mood-emoji">😊</div>
+                        <div class="mood-label">Sangat Baik</div>
+                    </div>
+                    <div class="mood-card selected">
+                        <div class="mood-emoji">🙂</div>
+                        <div class="mood-label">Baik</div>
+                    </div>
+                    <div class="mood-card">
+                        <div class="mood-emoji">😐</div>
+                        <div class="mood-label">Biasa</div>
+                    </div>
+                    <div class="mood-card">
+                        <div class="mood-emoji">😕</div>
+                        <div class="mood-label">Kurang Baik</div>
+                    </div>
+                    <div class="mood-card">
+                        <div class="mood-emoji">😢</div>
+                        <div class="mood-label">Buruk</div>
+                    </div>
+                </div>
+                <h3 style="margin: 1.5rem 0 1rem">Apa yang mempengaruhi mood Anda?</h3>
+                <div class="factors-grid">
+                    <div class="factor-chip">Tidur</div>
+                    <div class="factor-chip selected">Pekerjaan</div>
+                    <div class="factor-chip">Olahraga</div>
+                    <div class="factor-chip">Hubungan</div>
+                    <div class="factor-chip">Kesehatan</div>
+                    <div class="factor-chip">Keuangan</div>
+                </div>
+            </section>
+            <section class="journal-section">
+                <div class="section-header">
+                    <h2>Jurnal Hari Ini</h2>
+                </div>
+                <div class="prompt-section">
+                    <div class="prompt-card">
+                        <div class="prompt-text">Apa yang membuat Anda bersyukur hari ini?</div>
+                        <div class="prompt-meta">Prompt Harian • 3 menit</div>
+                    </div>
+                </div>
+                <textarea class="journal-input" placeholder="Tuliskan perasaan dan pikiran Anda di sini..."></textarea>
+                <div class="tag-cloud">
+                    <span class="mood-tag">Produktif</span>
+                    <span class="mood-tag">Lelah</span>
+                    <span class="mood-tag">Optimis</span>
+                </div>
+                <div class="action-row">
+                    <button class="btn btn-secondary">Simpan Draft</button>
+                    <button class="btn btn-primary">Publikasikan</button>
+                </div>
+            </section>
+        </div>
+        <aside class="sidebar">
+            <div class="calendar">
+                <div class="calendar-header">
+                    <button class="btn-secondary">&lt;</button>
+                    <h3>November 2024</h3>
+                    <button class="btn-secondary">&gt;</button>
+                </div>
+                <div class="calendar-grid">
+                    <div class="calendar-day">1<span class="mood-dot mood-good"></span></div>
+                    <div class="calendar-day">2<span class="mood-dot mood-excellent"></span></div>
+                    <!-- Calendar days would be generated dynamically -->
+                </div>
+            </div>
+            <div class="streak-section">
+                <h3>Streak Jurnal</h3>
+                <div class="streak-number">7 Hari</div>
+                <div class="streak-label">Terus pertahankan!</div>
+            </div>
+            <div class="mood-insights">
+                <h3>Insight Mood</h3>
+                <div class="chart-container"></div>
+                <p style="font-size: 0.875rem; margin-top: 0.5rem">Mood Anda cenderung lebih baik di pagi hari</p>
+            </div>
+        </aside>
+    </main>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Mengelola pemilihan mood
+            const moodCards = document.querySelectorAll('.mood-card');
+            moodCards.forEach(card => {
+                card.addEventListener('click', () => {
+                    moodCards.forEach(c => c.classList.remove('selected'));
+                    card.classList.add('selected');
+                });
+            });
+
+            // Menyimpan draft jurnal
+            const saveDraftButton = document.querySelector('.btn-secondary');
+            saveDraftButton.addEventListener('click', () => {
+                const journalInput = document.querySelector('.journal-input');
+                const draftContent = journalInput.value;
+                if (draftContent) {
+                    localStorage.setItem('journalDraft', draftContent);
+                    alert('Draft jurnal telah disimpan!');
+                } else {
+                    alert('Silakan tulis sesuatu sebelum menyimpan draft.');
+                }
+            });
+
+            // Memuat draft jurnal jika ada
+            const savedDraft = localStorage.getItem('journalDraft');
+            if (savedDraft) {
+                document.querySelector('.journal-input').value = savedDraft;
+            }
+
+            // Menerbitkan jurnal
+            const publishButton = document.querySelector('.btn-primary');
+            publishButton.addEventListener('click', () => {
+                const journalInput = document.querySelector('.journal-input');
+                const journalContent = journalInput.value;
+                if (journalContent) {
+                    // Di sini Anda bisa menambahkan logika untuk mengirim jurnal ke server
+                    alert('Jurnal Anda telah dipublikasikan!');
+                    journalInput.value = ''; // Mengosongkan input setelah publikasi
+                    localStorage.removeItem('journalDraft'); // Menghapus draft yang disimpan
+                } else {
+                    alert('Silakan tulis sesuatu sebelum mempublikasikan.');
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

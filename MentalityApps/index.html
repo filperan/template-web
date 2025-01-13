@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Konsultasi Sekarang</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" />
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .header {
+            background: linear-gradient(to right, #a1c4fd, #c2e9fb);
+            color: #fff;
+        }
+
+        .nav-link {
+            transition: color 0.3s;
+        }
+
+        .nav-link:hover {
+            color: #ff6f61;
+        }
+
+        .card:hover {
+            background-color: #e0f7fa;
+            transform: translateY(-10px);
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .btn-primary {
+            background: linear-gradient(to right, #66bb6a, #81c784);
+            transition: background 0.3s;
+        }
+
+        .btn-primary:hover {
+            background: linear-gradient(to right, #81c784, #66bb6a);
+        }
+
+        .btn-secondary {
+            background: linear-gradient(to right, #ffecb3, #ffab91);
+            transition: background 0.3s;
+        }
+
+        .btn-secondary:hover {
+            background: linear-gradient(to right, #ffab91, #ffecb3);
+        }
+
+        .info-card {
+            background: linear-gradient(to right, #e0f7fa, #80deea);
+            transition: background 0.3s;
+        }
+
+        .info-card:hover {
+            background: linear-gradient(to right, #80deea, #e0f7fa);
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50 text-gray-800">
+    <header class="header shadow-md">
+        <div class="container mx-auto px-4 py-2 flex justify-between items-center">
+            <div class="flex items-center">
+                <h3 class="text-lg font-semibold mb-4"><a class="nav-link hover:underline"
+                        href="index.html">MentalityApps</a></h3>
+            </div>
+            <nav class="space-x-4">
+                <a class="nav-link hover:underline" href="fitur.html">Fitur</a>
+                <a class="nav-link hover:underline" href="jurnal.html">Jurnal</a>
+                <a class="nav-link hover:underline" href="komunitas.html">Komunitas</a>
+                <a class="nav-link hover:underline" href="login.html">Keluar</a>
+            </nav>
+            <div>
+                <i class="fas fa-search text-gray-700"></i>
+            </div>
+        </div>
+    </header>
+    <main class="container mx-auto px-4 py-8">
+        <h1 class="text-center text-2xl font-bold text-blue-600 mb-8">Konsultasi Sekarang</h1>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div class="bg-blue-50 p-6 rounded-lg shadow-md text-center card">
+                <img alt="Illustration of a person thinking" class="mx-auto mb-4" height="100"
+                    src="https://storage.googleapis.com/a1aa/image/tUaVaF8LFeyyVKOxfODYXwzY6zpmRIIhJSqeDovnamJaWc1nA.jpg"
+                    width="100" />
+                <h2 class="text-xl font-semibold mb-2">Sesi Plong</h2>
+                <p>Konsultasi bersama psikolog HatiPlong yang siap bikin hati kamu lebih plong!</p>
+                <button class="bg-green-500 text-white px-4 py-2 rounded-lg shadow-md btn-primary"><a
+                        href="konseling1.html">pilih kelas</a></button>
+            </div>
+            <div class="bg-blue-50 p-6 rounded-lg shadow-md text-center card">
+                <img alt="Illustration of a couple hugging" class="mx-auto mb-4" height="100"
+                    src="https://storage.googleapis.com/a1aa/image/JxGpjuH0OjrbNVM9r8AVbIayIE0w0wtFVhS49WNk9P8yireJA.jpg"
+                    width="100" />
+                <h2 class="text-xl font-semibold mb-2">Duo Plong</h2>
+                <p>Konsultasi berdua bareng pasangan untuk hubungan yang lebih plong!</p>
+                <button class="bg-green-500 text-white px-4 py-2 rounded-lg shadow-md btn-primary"><a
+                        href="konseling1.html">pilih kelas</a></button>
+            </div>
+            <div class="bg-blue-50 p-6 rounded-lg shadow-md text-center card">
+                <img alt="Illustration of a package" class="mx-auto mb-4" height="100"
+                    src="https://storage.googleapis.com/a1aa/image/eQet8N3hOYv4sEzwoyGXy5m4kNcmwMfg7e61fBRRmuDwZxVfE.jpg"
+                    width="100" />
+                <h2 class="text-xl font-semibold mb-2">Paket Plong</h2>
+                <p>Paket konsultasi yang bikin hati kamu plong tanpa bikin dompet bolong!</p>
+                <button class="bg-green-500 text-white px-4 py-2 rounded-lg shadow-md btn-primary"><a
+                        href="konseling1.html">pilih kelas</a></button>
+            </div>
+            <div class="bg-blue-50 p-6 rounded-lg shadow-md text-center card">
+                <img alt="Illustration of an eye" class="mx-auto mb-4" height="100"
+                    src="https://storage.googleapis.com/a1aa/image/S8NHrp0T9oodMlZqRQcuBPFs9PM9e2tmQEfNoTXUc6EMLu6TA.jpg"
+                    width="100" />
+                <h2 class="text-xl font-semibold mb-2">EMDR Plong</h2>
+                <p>Terapi EMDR bersama Psikolog berpengalaman yang siap bikin hidup kamu lebih plong!</p>
+                <button class="bg-green-500 text-white px-4 py-2 rounded-lg shadow-md btn-primary"><a
+                        href="konseling1.html">pilih kelas</a></button>
+            </div>
+        </div><br><br>
+        <div class="max-w-4xl mx-auto p-6">
+            <h1 class="text-3xl font-bold text-blue-600 mb-2">Apa Yang Sedang Kamu Rasakan?</h1>
+            <p class="text-lg text-gray-700 mb-6">Yuk, pilih perasaan yang sedang kamu hadapi dan temukan bantuan yang
+                kamu butuhkan sekarang!</p>
+            <div class="flex flex-wrap gap-4 mb-6">
+                <div class="card flex flex-col items-center p-4 bg-white rounded-lg shadow-md w-24 info-card"
+                    onclick="showInfo('kecemasan')">
+                    <img alt="Illustration of a person feeling anxious" class="mb-2" height="50"
+                        src="https://storage.googleapis.com/a1aa/image/Wd6mp0NDf8ze7Ue9VxwKlYOym4noQqPSbuJGJJlWFFYof5qPB.jpg"
+                        width="50" />
+                    <span class="text-blue-600 font-semibold">Kecemasan</span>
+                </div>
+                <div class="card flex flex-col items-center p-4 bg-white rounded-lg shadow-md w-24 info-card"
+                    onclick="showInfo('stres')">
+                    <img alt="Illustration of a person feeling stressed" class="mb-2" height="50"
+                        src="https://storage.googleapis.com/a1aa/image/xL7y3CjRMk7gEpBIhLxfpHSyxfy0deUfCHssVJcGxsGpfzVfE.jpg"
+                        width="50" />
+                    <span class="text-blue-600 font-semibold">Stres</span>
+                </div>
+                <div class="card flex flex-col items-center p-4 bg-white rounded-lg shadow-md w-24 info-card"
+                    onclick="showInfo('trauma')">
+                    <img alt="Illustration of a person feeling traumatized" class="mb-2" height="50"
+                        src="https://storage.googleapis.com/a1aa/image/ieUrh1D4Gs0nEqrWGCs63OhHfiVNvSKQcWXeEKfhWpwlfzVfE.jpg"
+                        width="50" />
+                    <span class="text-blue-600 font-semibold">Trauma</span>
+                </div>
+                <div class="card flex flex-col items-center p-4 bg-white rounded-lg shadow-md w-24 info-card"
+                    onclick="showInfo('burnout')">
+                    <img alt="Illustration of a person feeling burnout" class="mb-2" height="50"
+                        src="https://storage.googleapis.com/a1aa/image/yRnMut8fqQ3pXKYpyyuD0sLJiGz5SRTIrzRGlo0AHl27PX9JA.jpg"
+                        width="50" />
+                    <span class="text-blue-600 font-semibold">Burnout</span>
+                </div>
+                <div class="card flex flex-col items-center p-4 bg-white rounded-lg shadow-md w-24 info-card"
+                    onclick="showInfo('depresi')">
+                    <img alt="Illustration of a person feeling depressed" class="mb-2" height="50"
+                        src="https://storage.googleapis.com/a1aa/image/PRnx2Tf3ABR4JqqfCwkmWBKiufMULAmKezAyPqxST7L4fzVfE.jpg"
+                        width="50" />
+                    <span class="text-blue-600 font-semibold">Depresi</span>
+                </div>
+                <div class="card flex flex-col items-center p-4 bg-white rounded-lg shadow-md w-24 info-card"
+                    onclick="showInfo('keluarga')">
+                    <img alt="Illustration of family and relationship issues" class="mb-2" height="50"
+                        src="https://storage.googleapis.com/a1aa/image/tkMz4JBfAGTYdC9l3PdUlevL3fytWDOY0LhOLh9dbuV5f5qPB.jpg"
+                        width="50" />
+                    <span class="text-blue-600 font-semibold text-center">Keluarga & hubungan</span>
+                </div>
+                <div class="card flex flex-col items-center p-4 bg-white rounded-lg shadow-md w-24 info-card"
+                    onclick="showInfo('gangguanMood')">
+                    <img alt="Illustration of mood disorder" class="mb-2" height="50"
+                        src="https://storage.googleapis.com/a1aa/image/2teYcGD4mswPYq6ZUHkvR9S37dmY0Ijsg1YEuRjyVrc8PX9JA.jpg"
+                        width="50" />
+                    <span class="text-blue-600 font-semibold text-center">Gangguan Mood</span>
+                </div>
+            </div>
+            <div id="info" class="bg-blue-100 p-6 rounded-lg shadow-md hidden">
+                <div class="flex items-start mb-4">
+                    <img id="infoImage" alt="Illustration" class="mr-4" height="50" src="" width="50" />
+                    <div>
+                        <h2 id="infoTitle" class="text-xl font-bold text-blue-600 mb-2"></h2>
+                        <p id="infoDescription" class="text-gray-700"></p>
+                    </div>
+                </div>
+                <div class="flex gap-4">
+                    <button class="bg-green-500 text-white px-4 py-2 rounded-lg shadow-md btn-primary"><a
+                            href="testgartis.html">Tes Gratis</a></button>
+                    <button class="bg-gray-200 text-gray-700 px-4 py-2 rounded-lg shadow-md btn-secondary"><a
+                            href="konseling.html">Psikolog</a></button>
+                </div>
+            </div>
+        </div>
+        <section class="mt-12">
+            <h2 class="text-center text-2xl font-bold text-blue-600 mb-8">Indeks Pengukuran Pengaruh Kesehatan Mental
+            </h2>
+            <p class="text-center text-lg text-gray-700 mb-6">Berikut adalah skor pengukuran kesehatan mental Anda
+                berdasarkan hasil evaluasi. <br>Skor ini mencerminkan tingkat kecemasan, <br>depresi, dan stres yang
+                Anda alami.</p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="bg-white p-6 rounded-lg shadow-md text-center">
+                    <h3 class="text-xl font-semibold mb-2">Skor Kecemasan</h3>
+                    <p class="text-2xl font-bold text-blue-600 mb-2">75/100</p>
+                    <p class="text-gray-600">Tingkat kecemasan Anda menunjukkan bahwa Anda mungkin mengalami kecemasan
+                        yang signifikan. Pertimbangkan untuk mencari dukungan jika diperlukan.</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md text-center">
+                    <h3 class="text-xl font-semibold mb-2">Skor Depresi</h3>
+                    <p class="text-2xl font-bold text-blue-600 mb-2">60/100</p>
+                    <p class="text-gray-600">Skor ini menunjukkan adanya gejala depresi. Penting untuk berbicara dengan
+                        seseorang yang dapat membantu Anda.</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md text-center">
+                    <h3 class="text-xl font-semibold mb-2">Skor Stres</h3>
+                    <p class="text-2xl font-bold text-blue-600 mb-2">80/100</p>
+                    <p class="text-gray-600">Tingkat stres Anda cukup tinggi. Pertimbangkan untuk melakukan teknik
+                        relaksasi atau mencari bantuan profesional.</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+    <footer class="bg-white py-6 mt-10 shadow-md">
+        <div class="container mx-auto px-4 text-center">
+            <img alt="Curhat Line logo" class="mx-auto mb-4" height="100"
+                src="https://storage.googleapis.com/a1aa/image/SdGg8ZdBv1roIReX4D3eYn02rG4ULbYzErOBi7KOb2RKLu6TA.jpg"
+                width="100" />
+            <p class="text-gray-600 mb-4">Kami peduli dengan kesehatan mental Anda. Jangan ragu untuk menghubungi kami.
+            </p>
+            <div class="flex justify-center space-x-4 mb-4">
+                <a href="https://www.facebook.com" target="_blank" class="text-blue-600 hover:text-blue-800">
+                    <i class="fab fa-facebook-f"></i> Facebook
+                </a>
+                <a href="https://www.twitter.com" target="_blank" class="text-blue-600 hover:text-blue-800">
+                    <i class="fab fa-twitter"></i> Twitter
+                </a>
+                <a href="https://www.instagram.com" target="_blank" class="text-blue-600 hover:text-blue-800">
+                    <i class="fab fa-instagram"></i> Instagram
+                </a>
+            </div>
+            <p class="text-gray-500 mb-2">Kontak: info@curhatline.com | Telepon: (021) 123-4567</p>
+            <p class="text-gray-500">© 2023 Curhat Line. Semua hak dilindungi.</p>
+        </div>
+    </footer>
+    <script>
+        function showInfo(type) {
+            const info = {
+                kecemasan: {
+                    title: "Kecemasan: Lebih dari Sekadar Gugup Biasa",
+                    description: "Kecemasan adalah perasaan khawatir atau takut yang intens dan menetap. Meskipun rasa cemas sesekali adalah normal, terutama dalam situasi yang penuh tekanan, kecemasan yang berlebihan dan berkepanjangan dapat mengganggu kehidupan sehari-hari.",
+                    image: "https://storage.googleapis.com/a1aa/image/Wd6mp0NDf8ze7Ue9VxwKlYOym4noQqPSbuJGJJlWFFYof5qPB.jpg"
+                },
+                stres: {
+                    title: "Stres: Mengelola Tekanan Hidup",
+                    description: "Stres adalah respons tubuh terhadap tantangan atau ancaman. Dalam dosis kecil, stres dapat membantu kita tetap fokus dan termotivasi, tetapi stres yang berkepanjangan dapat berdampak negatif pada kesehatan mental dan fisik.",
+                    image: "https://storage.googleapis.com/a1aa/image/xL7y3CjRMk7gEpBIhLxfpHSyxfy0deUfCHssVJcGxsGpfzVfE.jpg"
+                },
+                trauma: {
+                    title: "Trauma: Menghadapi Kenangan yang Menyakitkan",
+                    description: "Trauma adalah reaksi emosional terhadap peristiwa yang sangat menegangkan atau menyakitkan. Menghadapi trauma bisa menjadi proses yang panjang dan sulit, tetapi dengan dukungan yang tepat, pemulihan adalah mungkin.",
+                    image: "https://storage.googleapis.com/a1aa/image/ieUrh1D4Gs0nEqrWGCs63OhHfiVNvSKQcWXeEKfhWpwlfzVfE.jpg"
+                },
+                burnout: {
+                    title: "Burnout: Ketika Kelelahan Menjadi Masalah Serius",
+                    description: "Burnout adalah kondisi kelelahan fisik, emosional, dan mental yang disebabkan oleh stres berkepanjangan. Ini dapat mempengaruhi produktivitas dan kesehatan secara keseluruhan.",
+                    image: "https://storage.googleapis.com/a1aa/image/yRnMut8fqQ3pXKYpyyuD0sLJiGz5SRTIrzRGlo0AHl27PX9JA.jpg"
+                },
+                depresi: {
+                    title: "Depresi: Lebih dari Sekadar Kesedihan",
+                    description: "Depresi adalah gangguan mood yang menyebabkan perasaan sedih yang berkepanjangan dan kehilangan minat. Ini dapat mempengaruhi cara seseorang berpikir, merasa, dan berfungsi dalam kehidupan sehari-hari.",
+                    image: "https://storage.googleapis.com/a1aa/image/PRnx2Tf3ABR4JqqfCwkmWBKiufMULAmKezAyPqxST7L4fzVfE.jpg"
+                },
+                keluarga: {
+                    title: "Keluarga & Hubungan: Mengatasi Dinamika yang Rumit",
+                    description: "Masalah dalam keluarga dan hubungan dapat menyebabkan stres emosional yang signifikan. Penting untuk mencari dukungan dan komunikasi yang baik untuk mengatasi masalah ini.",
+                    image: "https://storage.googleapis.com/a1aa/image/tkMz4JBfAGTYdC9l3PdUlevL3fytWDOY0LhOLh9dbuV5f5qPB.jpg"
+                },
+                gangguanMood: {
+                    title: "Gangguan Mood: Memahami Perubahan Emosi",
+                    description: "Gangguan mood mencakup berbagai kondisi yang mempengaruhi suasana hati, seperti depresi dan gangguan bipolar. Memahami dan mengelola gangguan ini sangat penting untuk kesehatan mental.",
+                    image: "https://storage.googleapis.com/a1aa/image/2teYcGD4mswPYq6ZUHkvR9S37dmY0Ijsg1YEuRjyVrc8PX9JA.jpg"
+                }
+            };
+
+            const selectedInfo = info[type];
+            if (selectedInfo) {
+                document.getElementById('infoTitle').innerText = selectedInfo.title;
+                document.getElementById('infoDescription').innerText = selectedInfo.description;
+                document.getElementById('infoImage').src = selectedInfo.image;
+                document.getElementById('info').classList.remove('hidden');
+            }
+        }
+    </script>
+</body>
+
+</html>

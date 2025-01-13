@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>MentalityApps - Registrasi</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        :root {
+            --slate: #A6AEBF;
+            --blue: #C5D3E8;
+            --green: #D0E8C5;
+            --cream: #FFF8DE;
+            --dark-slate: #2d3748;
+            --light-slate: #4A5568;
+        }
+
+        body {
+            background: var(--cream);
+            color: var(--dark-slate);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 1rem;
+        }
+
+        .register-container {
+            background: #fff;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .header h1 {
+            font-size: 1.5rem;
+            color: var(--slate);
+        }
+
+        .input-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid var(--light-slate);
+            border-radius: 8px;
+            font-size: 1rem;
+        }
+
+        .btn {
+            width: 100%;
+            padding: 0.75rem;
+            border-radius: 8px;
+            border: none;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background 0.2s;
+            background: var(--slate);
+            color: #fff;
+            font-size: 1rem;
+        }
+
+        .btn:hover {
+            background: var(--green);
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 1.5rem;
+        }
+
+        .footer a {
+            color: var(--slate);
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="register-container">
+        <div class="header">
+            <h1>Daftar Akun Baru</h1>
+        </div>
+        <form id="registerForm">
+            <div class="input-group">
+                <label for="name">Nama Lengkap</label>
+                <input type="text" id="name" required placeholder="Masukkan nama lengkap Anda">
+            </div>
+            <div class="input-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" required placeholder="Masukkan email Anda">
+            </div>
+            <div class="input-group">
+                <label for="password">Kata Sandi</label>
+                <input type="password" id="password" required placeholder="Masukkan kata sandi Anda">
+            </div>
+            <button type="submit" class="btn">Daftar</button>
+        </form>
+        <div class="footer">
+            <p>Sudah punya akun? <a href="login.html">Masuk di sini</a></p>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('registerForm').addEventListener('submit', function (event) {
+            event.preventDefault(); // Mencegah pengiriman form
+
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            // Di sini Anda bisa menambahkan logika untuk menyimpan data registrasi
+            if (name && email && password) {
+                alert('Registrasi berhasil!'); // Ganti dengan logika penyimpanan yang sesuai
+
+                // Mengarahkan pengguna ke halaman login setelah registrasi berhasil
+                window.location.href = 'login.html';
+            } else {
+                alert('Silakan masukkan semua informasi yang diperlukan.');
+            }
+        });
+    </script>
+</body>
+
+</html>

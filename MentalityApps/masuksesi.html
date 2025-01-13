@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sesi Mendatang</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        .session-card {
+            background: #fff;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+            transition: transform 0.3s;
+        }
+
+        .session-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .session-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .session-status {
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            background: #38a169;
+            /* Green color */
+            color: #fff;
+            font-weight: bold;
+        }
+
+        .session-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .detail-item {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+        }
+
+        .detail-label {
+            font-size: 0.875rem;
+            color: #718096;
+            /* Light slate color */
+        }
+
+        .detail-value {
+            font-weight: 500;
+        }
+
+        .btn {
+            width: 100%;
+            padding: 1rem;
+            border-radius: 8px;
+            border: none;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background 0.2s;
+            background: #4a5568;
+            /* Slate color */
+            color: #fff;
+        }
+
+        .btn:hover {
+            background: #2d3748;
+            /* Darker slate color */
+        }
+
+        .queue-list {
+            margin-top: 2rem;
+        }
+
+        .queue-item {
+            background: #fff;
+            padding: 1rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-bottom: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .queue-item span {
+            font-weight: 500;
+        }
+
+        .navbar {
+            background: linear-gradient(to right, #a1c4fd, #c2e9fb);
+            color: #fff;
+            padding: 1rem;
+        }
+
+        .navbar a {
+            color: #fff;
+            margin: 0 1rem;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .navbar a:hover {
+            color: #ff6f61;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .back-btn {
+            margin-top: 1rem;
+            padding: 1rem;
+            border-radius: 8px;
+            border: none;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background 0.2s;
+            background: #4a5568;
+            /* Slate color */
+            color: #fff;
+        }
+
+        .back-btn:hover {
+            background: #2d3748;
+            /* Darker slate color */
+        }
+    </style>
+</head>
+
+<body class="bg-gray-100 p-6">
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-2xl font-bold">MentalityApps</h1>
+            <div>
+                <a href="index.html">Beranda</a>
+            </div>
+        </div>
+    </nav>
+
+    <div id="sessions-container">
+        <!-- Session 1 -->
+        <section class="session-card" id="session1">
+            <div class="session-header">
+                <h3>Sesi Mendatang</h3>
+                <span class="session-status">2 Jam Lagi</span>
+            </div>
+            <div class="session-details">
+                <div class="detail-item">
+                    <span class="detail-label">Psikolog</span>
+                    <span class="detail-value">Dr. Sarah Williams</span>
+                </div>
+                <div class="detail-item">
+                    <span class="detail-label">Tanggal & Waktu</span>
+                    <span class="detail-value">9 Nov 2024, 14:00</span>
+                </div>
+                <div class="detail-item">
+                    <span class="detail-label">Durasi</span>
+                    <span class="detail-value">60 Menit</span>
+                </div>
+            </div>
+            <button class="btn" onclick="enterSession('queue1', 'session1')">Masuk ke Sesi</button>
+        </section>
+
+        <!-- Session 2 -->
+        <section class="session-card" id="session2">
+            <div class="session-header">
+                <h3>Sesi Mendatang</h3>
+                <span class="session-status">3 Jam Lagi</span>
+            </div>
+            <div class="session-details">
+                <div class="detail-item">
+                    <span class="detail-label">Psikolog</span>
+                    <span class="detail-value">Dr. John Doe</span>
+                </div>
+                <div class="detail-item">
+                    <span class="detail-label">Tanggal & Waktu</span>
+                    <span class="detail-value">10 Nov 2024, 15:00</span>
+                </div>
+                <div class="detail-item">
+                    <span class="detail-label">Durasi</span>
+                    <span class="detail-value">45 Menit</span>
+                </div>
+            </div>
+            <button class="btn" onclick="enterSession('queue2', 'session2')">Masuk ke Sesi</button>
+        </section>
+    </div>
+
+    <!-- Queue List for Session 1 -->
+    <div id="queue1" class="queue-list hidden">
+        <h3 class="text-xl font-bold mb-4">Daftar Antrian</h3>
+        <div class="queue-item">
+            <span>1. John Doe</span>
+            <span>13:00</span>
+        </div>
+        <div class="queue-item">
+            <span>2. Jane Smith</span>
+            <span>13:30</span>
+        </div>
+        <div class="queue-item">
+            <span>3. Alice Johnson</span>
+            <span>14:00</span>
+        </div>
+        <button class="back-btn" onclick="goBack()">Kembali</button>
+    </div>
+
+    <!-- Queue List for Session 2 -->
+    <div id="queue2" class="queue-list hidden">
+        <h3 class="text-xl font-bold mb-4">Daftar Antrian</h3>
+        <div class="queue-item">
+            <span>1. Bob Brown</span>
+            <span>14:00</span>
+        </div>
+        <div class="queue-item">
+            <span>2. Charlie Chaplin</span>
+            <span>14:30</span>
+        </div>
+        <div class="queue-item">
+            <span>3. David Davis</span>
+            <span>15:00</span>
+        </div>
+        <button class="back-btn" onclick="goBack()">Kembali</button>
+    </div>
+
+    <script>
+        function enterSession(queueId, sessionId) {
+            // Sembunyikan semua sesi
+            const sessions = document.querySelectorAll('.session-card');
+            sessions.forEach(session => {
+                session.style.display = 'none';
+            });
+
+            // Tampilkan antrian untuk sesi yang dipilih
+            const queue = document.getElementById(queueId);
+            queue.classList.remove('hidden');
+
+            // Arahkan ke halaman sesi yang berlangsung
+            setTimeout(() => {
+                window.location.href = 'sesi_berlangsung.html';
+            }, 3000); // Waktu tunggu 3 detik sebelum mengarahkan ke halaman sesi
+        }
+
+        function goBack() {
+            // Sembunyikan semua antrian
+            const queues = document.querySelectorAll('.queue-list');
+            queues.forEach(queue => {
+                queue.classList.add('hidden');
+            });
+
+            // Tampilkan semua sesi
+            const sessions = document.querySelectorAll('.session-card');
+            sessions.forEach(session => {
+                session.style.display = 'block';
+            });
+        }
+    </script>
+</body>
+
+</html>
